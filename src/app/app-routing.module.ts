@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'home'
+  },
+  {
+    path: 'onboarding',
+    loadChildren: () => import('./onboarding/onboarding.module').then( m => m.OnboardingPageModule)
   }
 ];
 
