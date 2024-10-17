@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { IonicStorageModule } from '@ionic/storage-angular';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { IonicStorageModule } from '@ionic/storage-angular';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatTabsModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    SwiperModule
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, provideAnimationsAsync()],
   bootstrap: [AppComponent],

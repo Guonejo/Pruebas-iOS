@@ -1,13 +1,37 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>onboarding</ion-title>
+    <ion-title>Bienvenida</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">onboarding</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <!-- Configuración del swiper -->
+  <swiper [config]="config">
+    <!-- Slide 1 -->
+    <ng-template swiperSlide>
+      <img src="assets/img/slide1.png" alt="Slide 1">
+      <h2>Bienvenido a la App</h2>
+      <p>Esta app te ayudará a organizar tus tareas diarias.</p>
+    </ng-template>
+
+    <!-- Slide 2 -->
+    <ng-template swiperSlide>
+      <img src="assets/img/slide2.png" alt="Slide 2">
+      <h2>Gestiona tus proyectos</h2>
+      <p>Visualiza y gestiona tus proyectos de forma eficiente.</p>
+    </ng-template>
+
+    <!-- Slide 3 -->
+    <ng-template swiperSlide>
+      <img src="assets/img/slide3.png" alt="Slide 3">
+      <h2>Recibe notificaciones</h2>
+      <p>¡Nunca más te perderás una tarea importante!</p>
+    </ng-template>
+
+    <!-- Slide 4 -->
+    <ng-template swiperSlide>
+      <h2>¡Vamos a empezar!</h2>
+      <ion-button (click)="goToLogin()" expand="full">Iniciar Sesión</ion-button>
+    </ng-template>
+  </swiper>
 </ion-content>

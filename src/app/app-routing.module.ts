@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from './services/auth.guard';  // Si usas AuthGuard, mantén esto
 
 const routes: Routes = [
   {
@@ -8,8 +8,8 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
-    path: '',
-    redirectTo: 'home',
+    path: '',  // Cambiado para que redirija al onboarding al iniciar la app
+    redirectTo: 'onboarding',
     pathMatch: 'full'
   },
   {
@@ -31,7 +31,7 @@ const routes: Routes = [
   {
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then(m => m.PerfilPageModule),
-    canActivate: [AuthGuard]  // Ruta protegida
+    canActivate: [AuthGuard]  // Ruta protegida por AuthGuard
   },
   {
     path: 'chat',
@@ -44,15 +44,14 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: '**',
-    redirectTo: 'home'
+    path: 'onboarding',
+    loadChildren: () => import('./pages/onboarding/onboarding.module').then(m => m.OnboardingPageModule)  // Ruta del onboarding
   },
   {
-    path: 'onboarding',
-    loadChildren: () => import('./onboarding/onboarding.module').then( m => m.OnboardingPageModule)
+    path: '**',  // Ruta comodín para redirigir a home si la ruta no existe
+    redirectTo: 'home'
   }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
